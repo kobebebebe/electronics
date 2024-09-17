@@ -34,7 +34,7 @@ public abstract class RaspberryPiRgbLedMatrixServlet extends HttpServlet
         
         os = new OperatingSystem();
      
-        String configDirPath = os.currentUserHome() + "/.onebeartoe/rpi-rgb-led-matrix-webapp/";
+        String configDirPath = os.currentUserHome() + "/.bokcu/rpi-rgb-led-matrix-webapp/";
         File configDir = new File(configDirPath);
         configDir.mkdirs();        
         
@@ -127,12 +127,12 @@ public abstract class RaspberryPiRgbLedMatrixServlet extends HttpServlet
         ledMatrix.setRpiLgbLedMatrixHome(rpiLgbLedMatrixHome);
                 
         // set up the default image/animation paths
-        String animationsPath = "/home/pi/rpi-rgb-led-matrix-images/animations/";        
+        String animationsPath = "/home/pi/rpi-rgb-led-matrix/utils";        
         ledMatrix.setAnimationsPath(animationsPath);
         File animationsDir = new File(animationsPath);
         animationsDir.mkdirs();
         
-        String stillImagesPath = "/home/pi/rpi-rgb-led-matrix-images/stills/";        
+        String stillImagesPath = "/home/pi/rpi-rgb-led-matrix/utils";        
         ledMatrix.setStillImagesPath(stillImagesPath);
         File stillImagesDirectory = new File(stillImagesPath);
         stillImagesDirectory.mkdirs();
@@ -141,8 +141,8 @@ public abstract class RaspberryPiRgbLedMatrixServlet extends HttpServlet
         //      https://www.adafruit.com/products/1484
         //      https://www.adafruit.com/products/2345
         //
-        String [] commandLineFlags = {"--led-no-hardware-pulse", 
-                                      "--led-gpio-mapping=adafruit-hat"};
+        String [] commandLineFlags = {"--led-rows=64"", 
+                                      "--led-chain=2"};
         
         ledMatrix.setCommandLineFlags(commandLineFlags);
         
